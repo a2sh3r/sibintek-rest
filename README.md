@@ -8,6 +8,9 @@
 - [x] REST Auth  
 - [x] Cast API
 - [x] Swagger
+- [x] Docker
+- [x] Docker-compose.yml
+- [x] Github Actions
 -----
 
 ### Description
