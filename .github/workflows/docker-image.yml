@@ -19,7 +19,24 @@ jobs:
         secrets: ${{ toJSON(secrets) }}
     - name: Echo secrets
       run: |
-        echo "Value of DB_HOST ${{ env.DB_HOST }}"
+        echo "DB_HOST=${{ env.DB_HOST }}" >> .env
+        echo "DEBUG=${{ env.DEBUG }}" >> .env
+        echo "DEFAULT_FROM_EMAIL=${{ env.DEFAULT_FROM_EMAIL }}" >> .env
+        echo "EMAIL_ADMIN=${{ env.EMAIL_ADMIN }}" >> .env
+        echo "EMAIL_HOST=${{ env.EMAIL_HOST }}" >> .env
+        echo "EMAIL_HOST_PASSWORD=${{ env.EMAIL_HOST_PASSWORD }}" >> .env
+        echo "EMAIL_HOST_USER=${{ env.EMAIL_HOST_USER }}" >> .env
+        echo "EMAIL_PORT=${{ env.EMAIL_PORT }}" >> .env
+        echo "EMAIL_USE_TLS=${{ env.EMAIL_USE_TLS }}" >> .env
+        echo "POSTGRES_DATABASE=${{ env.POSTGRES_DATABASE }}" >> .env
+        echo "POSTGRES_PASSWORD=${{ env.POSTGRES_PASSWORD }}" >> .env
+        echo "POSTGRES_PORT=${{ env.POSTGRES_PORT }}" >> .env
+        echo "POSTGRES_USER=${{ env.POSTGRES_USER }}" >> .env
+        echo "SECRET_KEY=${{ env.SECRET_KEY }}" >> .env
+        echo "SERVER_EMAIL=${{ env.SERVER_EMAIL }}" >> .env
+        echo "SQL_ENGINE=${{ env.SQL_ENGINE }}" >> .env
+    - name: Copy .env to path
+      run: docker cp .env CONTAINER_ID:/path/to/app/.env
     - name: Build and run containers
       run: |
         docker-compose -f docker-compose-dev.yml up -d --build
