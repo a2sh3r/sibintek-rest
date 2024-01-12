@@ -35,8 +35,6 @@ jobs:
         echo "SECRET_KEY=${{ env.SECRET_KEY }}" >> .env
         echo "SERVER_EMAIL=${{ env.SERVER_EMAIL }}" >> .env
         echo "SQL_ENGINE=${{ env.SQL_ENGINE }}" >> .env
-    - name: Copy .env to path
-      run: docker cp .env CONTAINER_ID:/path/to/app/.env
     - name: Build and run containers
       run: |
         docker-compose -f docker-compose-dev.yml up -d --build
