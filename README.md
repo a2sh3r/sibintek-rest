@@ -11,6 +11,9 @@
 - [x] Docker
 - [x] Docker-compose.yml
 - [x] Github Actions
+- [x] Redis
+- [x] Celery
+- [x] Nginx
 -----
 
 ### Description
