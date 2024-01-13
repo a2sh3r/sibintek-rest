@@ -2,7 +2,9 @@
 FROM python:3.11-slim
 
 # set work directory
-WORKDIR /usr/src/sibintek_rest
+WORKDIR /usr/src/app/
+RUN mkdir /usr/src/app/static
+RUN mkdir /usr/src/app/media
 
 # set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
